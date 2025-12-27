@@ -5,8 +5,7 @@ export default defineConfig(({ mode }) => {
   // Load env file based on `mode` in the current working directory.
   const env = loadEnv(mode, process.cwd(), '');
   
-  // CRITICAL FIX: Use the provided key as a fallback if environment variables fail.
-  // This prevents the "Black Screen" crash caused by undefined API Key.
+  // FIX: Hardcoded key as fallback ensures the app never crashes due to missing env vars.
   const apiKey = env.API_KEY || env.VITE_API_KEY || "AIzaSyBES_bpeKzfUmoSWWSaoIVQfmzrUAHQxxU";
 
   return {
